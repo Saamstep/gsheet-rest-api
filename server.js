@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const { JSONFromURL } = require("googlesheetstojson");
+const PORT = process.env.PORT || 8080;
 
 require("dotenv").config();
 
@@ -35,6 +36,6 @@ app.get("/get/:key", async (req, res) => {
   res.status(200).send(value || "null");
 });
 
-app.listen(process.env.PORT || 8080, () => {
-  console.log("Alive!");
+app.listen(PORT, () => {
+  console.log(`Alive on port ${PORT}`);
 });
